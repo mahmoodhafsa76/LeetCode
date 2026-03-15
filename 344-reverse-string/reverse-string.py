@@ -3,9 +3,8 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        def reverse(left, right):
-            if left < right:
-                reverse(left+1, right-1)
-                s[left], s[right] = s[right], s[left]
-
-        reverse(0, len(s)-1)
+        l, r = 0, len(s) - 1
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
