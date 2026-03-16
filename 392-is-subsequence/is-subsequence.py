@@ -8,4 +8,4 @@ class Solution:
                
             j += 1 
 
-        return True if i == len(s) else False      
+        return i == len(s)   
