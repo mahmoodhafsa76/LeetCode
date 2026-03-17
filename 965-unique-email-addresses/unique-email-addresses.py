@@ -3,10 +3,10 @@ class Solution:
         unique = set()  
         # Create an empty set to store unique (processed) email addresses
 
-        for e in emails:  
+        for email in emails:  
             # Loop through each email in the input list
             
-            local, domain = e.split('@')  
+            local, domain = email.split('@')  
             # Split the email into local part and domain part at '@'
             # Example: "test.email+alex@gmail.com"
             # local = "test.email+alex", domain = "gmail.com"
