@@ -2,9 +2,11 @@ class Solution:
     def heightChecker(self, heights: List[int]) -> int:
         count = [0] * 101
 
+        # count occurances
         for h in heights:
             count[h] += 1
 
+        # build sorted array
         expected_heights = []
         for num in range(len(count)):
             expected_heights.extend([num] * count[num])
