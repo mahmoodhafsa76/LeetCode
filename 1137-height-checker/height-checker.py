@@ -11,6 +11,8 @@ class Solution:
         for num in range(len(count)):
             expected_heights.extend([num] * count[num])
 
+
+        # match indices values
         counter = 0
         for j in range(len(heights)):
             if expected_heights[j] != heights[j]:
