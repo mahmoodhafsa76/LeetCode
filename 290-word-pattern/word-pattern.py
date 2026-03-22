@@ -1,15 +1,15 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         mapSP, mapPS = {}, {}
-        s = s.split()
+        words = s.split()
 
-        if len(s) == len(pattern):
-            for c1, c2 in zip(s, pattern):
+        if len(words) == len(pattern):
+            for c, w in zip(words, pattern):
             
-                if ((c1 in mapSP and mapSP[c1] != c2) or (c2 in mapPS and mapPS[c2] != c1)):
+                if ((c in mapSP and mapSP[c] != w) or (w in mapPS and mapPS[w] != c)):
                     return False
-                mapSP[c1] = c2
-                mapPS[c2] = c1
+                mapSP[c] = w
+                mapPS[w] = c
 
             return True
         
