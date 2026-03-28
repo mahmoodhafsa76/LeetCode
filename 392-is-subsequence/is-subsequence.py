@@ -1,11 +1,19 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        i , j = 0, 0
+        n, m = len(s), len(t)
+        memo = [[-1] * m for _ in range(n)]
 
-        while i < len(s) and j < len(t):
+        def rec(i, j):
+            if i == n:
+                return True
+            if j == m:
+                return False
+            if memo[i][j] != -1:
+                return memo[i][j] == 1
             if s[i] == t[j]:
-                i += 1
-               
-            j += 1 
+                memo[i][j] = 1 if rec(i + 1, j + 1) else 0
+            else:
+                memo[i][j] = 1 if rec(i, j + 1) else 0
+            return memo[i][j] == 1
 
-        return i == len(s)   
+        return rec(0, 0)
