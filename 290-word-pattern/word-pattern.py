@@ -1,17 +1,17 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        mapSP, mapPS = {}, {}
-        words = s.split()
+        words = s.split(" ")
+        if len(pattern) != len(words):
+            return False
 
-        if len(words) == len(pattern):
-            for c, w in zip(words, pattern):
-            
-                if ((c in mapSP and mapSP[c] != w) or (w in mapPS and mapPS[w] != c)):
-                    return False
-                mapSP[c] = w
-                mapPS[w] = c
+        charToWord = {}
+        wordToChar = {}
 
-            return True
-        
-        else :
-             return False
+        for c, w in zip(pattern, words):
+            if c in charToWord and charToWord[c] != w:
+                return False
+            if w in wordToChar and wordToChar[w] != c:
+                return False
+            charToWord[c] = w
+            wordToChar[w] = c
+        return True
