@@ -1,10 +1,13 @@
-from collections import Counter
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
-        available = Counter(text)
-        required = Counter('balloon')
-        res = len(text)
-        for char in required:
-            res = min(res, available[char]//required[char])
+        mp = defaultdict(int)
+        for c in text:
+            if c in "balon":
+                mp[c] += 1
 
-        return res
+        if len(mp) < 5:
+            return 0
+
+        mp['l'] //= 2
+        mp['o'] //= 2
+        return min(mp.values())
