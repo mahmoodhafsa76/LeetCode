@@ -1,14 +1,11 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        N = len(nums)
-        count = 1
+        sortedNums = sorted(nums)
+        arr = []
 
-        for i in range(1, 2 * N):
-            if nums[(i - 1) % N] <= nums[i % N]:
-                count += 1
-            else:
-                count = 1
-            if count == N:
+        for i in range(len(nums)):
+            arr.insert(0, sortedNums.pop())
+            if nums == arr + sortedNums:
                 return True
 
-        return N == 1
+        return False
