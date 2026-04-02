@@ -1,11 +1,14 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        count, N = 0, len(nums)
+        N = len(nums)
+        count = 1
 
-        for i in range(N):
-            if nums[i] > nums[(i + 1) % N]:
+        for i in range(1, 2 * N):
+            if nums[(i - 1) % N] <= nums[i % N]:
                 count += 1
-                if count > 1:
-                    return False
+            else:
+                count = 1
+            if count == N:
+                return True
 
-        return True
+        return N == 1
