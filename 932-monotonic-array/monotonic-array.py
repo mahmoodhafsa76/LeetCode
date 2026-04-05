@@ -1,13 +1,10 @@
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
-        n = len(nums)
-        if nums[0] <= nums[-1]:
-            for i in range(1, n):
-                if nums[i] < nums[i - 1]:
-                    return False
-            return True
-        else:
-            for i in range(1, n):
-                if nums[i] > nums[i - 1]:
-                    return False
-            return True
+        increase, decrease = True, True
+
+        for i in range(len(nums) - 1):
+            if not (nums[i] <= nums[i + 1]):
+                increase = False
+            if not (nums[i] >= nums[i + 1]):
+                decrease = False
+        return increase or decrease
