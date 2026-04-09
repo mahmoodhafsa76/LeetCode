@@ -1,14 +1,16 @@
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
-        nums.sort()
-        n = len(nums)
+        count = {}
+        for i in range(len(nums)):
+            if nums[i] not in count:
+                count[nums[i]] = 0
+            count[nums[i]] += 1
+
         res = True
-        i = 0
-        while i < n:
-            num = nums.count(nums[i])
-            if (num & 1) == 1:
+
+        for val in count.values():
+            if val & 1 == 1:
                 res = False
 
-            i += num 
-
         return res
+            
