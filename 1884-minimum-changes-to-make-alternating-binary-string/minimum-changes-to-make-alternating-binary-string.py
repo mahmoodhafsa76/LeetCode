@@ -1,7 +1,7 @@
 class Solution:
     def minOperations(self, s: str) -> int:
         alter_str1, alter_str2 = self.alternatingStringGenerator(s)
-        count1, count2 = 0, 0
+        count1 = count2 = 0
         for i in range(len(s)):
             if int(s[i]) ^ int(alter_str1[i]):
                 count1 += 1
