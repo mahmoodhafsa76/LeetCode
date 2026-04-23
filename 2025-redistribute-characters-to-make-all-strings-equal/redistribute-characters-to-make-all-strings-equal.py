@@ -1,13 +1,14 @@
 class Solution:
     def makeEqual(self, words: List[str]) -> bool:
-        char_count = defaultdict(int)
+        freq = [0] *26
+        n = len(words)
         
         for w in words:
             for c in w:
-                char_count[c] += 1
+              freq[ord(c) - ord('a')]  += 1
 
-        for key in char_count:
-            if char_count[key] % len(words):
+        for count in freq:
+            if count % n != 0:
                 return False
         return True
 
