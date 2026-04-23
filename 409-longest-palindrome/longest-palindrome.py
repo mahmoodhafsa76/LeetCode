@@ -8,11 +8,9 @@ class Solution:
             if count[c] % 2 == 0:
                 res += 2
 
-        for cnt in count.values():
-            if cnt % 2:
-                res += 1
-                break
-
+        if res < len(s):
+            res += 1
+            
         return res
 
 
