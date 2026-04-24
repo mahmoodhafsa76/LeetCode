@@ -6,10 +6,10 @@ class Solution:
 
         for c in s:
             if 'a' <= c <= 'z':
-                bit = 1 << (ord(c) - ord('a'))
-                if mask1 & bit:
+                bit = 1 << (ord(c) - ord('a')) # assigns value to the character position
+                if mask1 & bit: # checks if the bit at the character position is even or odd (0 or 1)
                     res += 2
-                mask1 ^= bit
+                mask1 ^= bit  # toggles character bit position after each pass 
             else:
                 bit = 1 << (ord(c) - ord('A'))
                 if mask2 & bit:
