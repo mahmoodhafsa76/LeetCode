@@ -1,19 +1,20 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        count = set()
-        result = 0
+        mask1 = 0  # [a - z]
+        mask2 = 0  # [A - Z]
+        res = 0
 
-        for char in s:
-            if char in count:
-                count -= {char}
-                result += 2
-
+        for c in s:
+            if 'a' <= c <= 'z':
+                bit = 1 << (ord(c) - ord('a'))
+                if mask1 & bit:
+                    res += 2
+                mask1 ^= bit
             else:
-                count.add(char)
-        
-        if count:
-            result += 1
+                bit = 1 << (ord(c) - ord('A'))
+                if mask2 & bit:
+                    res += 2
+                mask2 ^= bit
 
-        return result
-
+        return res + 1 if mask1 or mask2 else res
         
