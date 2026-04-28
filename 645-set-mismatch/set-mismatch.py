@@ -1,15 +1,15 @@
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        result = [0, 0]  # [duplicate, missing]
+        nums.sort()
+        result = [0, 1]
 
-        for num in nums:
-            num = abs(num)
-            nums[num - 1] *= -1
-            if nums[num - 1] > 0:
-                result[0] = num
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                result[0] = nums[i]
 
+            if nums[i] - nums[i - 1] == 2:
+                result[1] = nums[i] - 1
 
-        for i, num in enumerate(nums):
-            if num > 0 and i + 1 != result[0]:
-                result[1] = i + 1
-                return result 
+        if nums[-1] != len(nums):
+            result[1] = len(nums)
+        return result
