@@ -20,7 +20,7 @@ class Solution:
                 right_count -= 1
             left_len = i+1
             right_len = len(nums) - i - 1
-            if 2 * left_count > left_len and 2 * right_count > right_len:
+            if  left_count > left_len//2 and right_count > right_len//2:
                 return i
 
         return -1
