@@ -1,6 +1,6 @@
 # LeetCode
 
-A collection of my LeetCode problem solutions, written in Python. This repo is where I track my consistent practice — working through patterns like two pointers, sliding window, hashing, and arrays/strings one problem at a time.
+A collection of my LeetCode problem solutions, written in Python. This repo is where I track my consistent practice; working through patterns like two pointers, sliding window, hashing, and arrays/strings one problem at a time.
 
 ![Python](https://img.shields.io/badge/language-Python-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -89,7 +89,7 @@ LeetCode/
 
 ## Approach
 
-Solutions are organized by LeetCode problem number and focus on building pattern recognition — arrays, strings, two pointers, hashing, prefix sums, sorting, and greedy techniques — over sheer volume. Each folder is self-contained with a single Python solution file corresponding to that problem.
+Solutions are organized by LeetCode problem number and focus on building pattern recognition; arrays, strings, two pointers, hashing, prefix sums, sorting, and greedy techniques rather than sheer volume. Each folder is self-contained with a single Python solution file corresponding to that problem.
 
 ## License
 
